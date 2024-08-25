@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  tines_tunnel:
+    image: tines-tunnel:latest  # Make sure to use the correct image name and tag
+    ports:
+      - "9000:9000"  # This maps the container's port 9000 to the host's port 9000
+    environment:
+      TUNNEL_METRICS_PORT: "9000"
+      TINES_TUNNEL_SECRET: "secret"
+    deploy:
+      mode: replicated
+      replicas: 2  # Deploy two replicas per host
+    
